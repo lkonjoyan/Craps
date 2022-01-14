@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Die here.
+ * Die, a singular dice
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Libby Konjoyan
+ * @version 11.1.22
  */
 public class Die
 {
