@@ -22,28 +22,67 @@ public class Craps
         System.out.println("The player continues the roll the two d6 until they roll the point");
         System.out.println("OR the player rolls a 7, which is an automatic loss");
     }
+
     public static void main(String[] args)
     {
         //welcome
         Scanner in = new Scanner(System.in);
-        System.out.println("Hello, would you like to play a game of craps? (yes or no) ");
-        String response = in.nextLine();
-        if (response != "yes")
+        boolean win = false;
+        boolean playing = true;
+        System.out.println("Shall we play a game of craps?");
+        while (playing)
         {
-            //end program
+            System.out.println("Would you like to see the instructions on how to pay craps? (yes or no) ");
+            response = in.nextLine();
+            if (response == "yes")
+            {
+                instructions();
+            }
+            //need to have two dice rolls
+            System.out.println("Hit enter to roll dice: ");
+            response = in.nextLine();
+            System.out.println(//Die.rollDie());
+
+            //dice rolling --> call die class
+            int die1 = //first die
+            int die2 = //second die
+            int point = die1 + die2;
+            System.out.println("Your roll total is : " + point);
+            if (point == 7 || point == 11)
+            {
+                win = true;
+            }
+            else if (point == 2 || point == 3 || point == 12)
+            {
+                win = false;
+            }
+            else
+            {
+                while (!win)
+                {
+                    //reroll die
+                    // compare to losing value or point
+                }
+            }
+            if (win)
+            {
+                System.out.println("You won!");
+            }
+            else
+            {
+                System.out.println("Game over!");
+            }
+            System.outl.println("Would you like to play again? (y/n)");
+            String response = in.next();
+            if (response.equalsIgnoreCase("y"))
+            {
+                playing = true;
+            }
+            else
+            {
+                playing = false;
+                System.out.println("Thank you for playing. Goodbye...");
+            }
         }
-        System.out.println("Would you like to see the instructions on how to pay craps? (yes or no) ");
-        response = in.nextLine();
-        if (response == "yes")
-        {
-            instructions();
-        }
-        //need to have two dice rolls
-        System.out.println("Hit enter to roll dice: ");
-        response = in.nextLine();
-        System.out.println(//Die.rollDie());
-        
-        //dice rolling --> call die class
-        
     }
 }
