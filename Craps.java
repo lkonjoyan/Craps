@@ -27,27 +27,26 @@ public class Craps
     {
         //welcome
         Scanner in = new Scanner(System.in);
+        Die die = new Die();
         boolean win = false;
         boolean playing = true;
         System.out.println("Shall we play a game of craps?");
         while (playing)
         {
-            System.out.println("Would you like to see the instructions on how to pay craps? (yes or no) ");
-            response = in.nextLine();
-            if (response == "yes")
+            System.out.println("Would you like to see the instructions on how to pay craps? (y/n) ");
+            String response = in.nextLine();
+            if (response.equalsIgnoreCase("y"))
             {
                 instructions();
             }
-            //need to have two dice rolls
             System.out.println("Hit enter to roll dice: ");
             response = in.nextLine();
-            System.out.println(//Die.rollDie());
-
-            //dice rolling --> call die class
-            int die1 = //first die
-            int die2 = //second die
+            int die1 = die.rollDie();
+            int die2 = die.rollDie();
             int point = die1 + die2;
-            System.out.println("Your roll total is : " + point);
+            System.out.println("First die: " + die1 + ", Second die: " + die2 + ", Point: " + point);
+            
+            //compare to winning or losing values
             if (point == 7 || point == 11)
             {
                 win = true;
@@ -58,12 +57,36 @@ public class Craps
             }
             else
             {
-                while (!win)
+                boolean doneRolling = false;
+                while (!doneRolling)
                 {
                     //reroll die
+                    System.out.println("Hit enter to roll again");
+                    response = in.nextLine();
+                    die1 = die.rollDie();
+                    die2 = die.rollDie();
+                    int diceSum = die1 + die2;
+                    System.out.println("You rolled a " + diceSum);
+                    
                     // compare to losing value or point
+                    if (diceSum == point)
+                    {
+                        win = true;
+                        doneRolling = true;
+                    }
+                    else if (diceSum == 7)
+                    {
+                        win = false;
+                        doneRolling = true;
+                    }
+                    else
+                    {
+                        doneRolling = false;
+                    }
                 }
             }
+            
+            //win or lose
             if (win)
             {
                 System.out.println("You won!");
@@ -72,8 +95,10 @@ public class Craps
             {
                 System.out.println("Game over!");
             }
-            System.outl.println("Would you like to play again? (y/n)");
-            String response = in.next();
+            
+            //asks if user would like to play again
+            System.out.println("Would you like to play again? (y/n)");
+            response = in.nextLine();
             if (response.equalsIgnoreCase("y"))
             {
                 playing = true;
