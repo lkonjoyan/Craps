@@ -10,7 +10,10 @@ import java.util.Scanner;
 
 public class Craps
 {
-    //instructions method
+    /**
+     * instructions method
+     * Prints out the instructions for a game of craps
+     */
     public static void instructions()
     {
         System.out.println("The basic rules for playing craps:");
@@ -22,7 +25,10 @@ public class Craps
         System.out.println("The player continues the roll the two d6 until they roll the point");
         System.out.println("OR the player rolls a 7, which is an automatic loss");
     }
-
+    
+    /**
+     * Main method: runs the program
+     */
     public static void main(String[] args)
     {
         //welcome
