@@ -117,3 +117,21 @@ public class Craps
         }
     }
 }
+
+/*
+
+COMMENTS FROM THE INSTRUCTOR:
+
+This is wonderful, Libby! You did a great job of correctly implementing the rules
+of the game of Craps, and your program works just as it should.
+
+One detail: the assignment asked you to implement a "default value" that would
+be used when answering Yes-No questions. You didn't do that, but it's a nice
+feature to include, as it streamlines play for the user.
+
+Overall, though, excellent work! Thank you!
+
+SCORE: 50/50
+
+*/
+
